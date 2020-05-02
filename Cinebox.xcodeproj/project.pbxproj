@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		208870DC2459E2FE00803339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208870DB2459E2FE00803339 /* AppDelegate.swift */; };
 		208870DE2459E2FE00803339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208870DD2459E2FE00803339 /* SceneDelegate.swift */; };
-		208870E02459E2FE00803339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208870DF2459E2FE00803339 /* ViewController.swift */; };
 		208870E32459E2FE00803339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208870E12459E2FE00803339 /* Main.storyboard */; };
 		208870E62459E2FE00803339 /* Cinebox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 208870E42459E2FE00803339 /* Cinebox.xcdatamodeld */; };
 		208870E82459E30000803339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208870E72459E30000803339 /* Assets.xcassets */; };
 		208870EB2459E30000803339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208870E92459E30000803339 /* LaunchScreen.storyboard */; };
+		208870F32459E51A00803339 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208870F22459E51A00803339 /* SearchViewController.swift */; };
+		20DE90EE245DEE780068AE86 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DE90ED245DEE780068AE86 /* SavedViewController.swift */; };
+		20DE90F0245DF2B60068AE86 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DE90EF245DF2B60068AE86 /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		208870D82459E2FE00803339 /* Cinebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208870DB2459E2FE00803339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		208870DD2459E2FE00803339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		208870DF2459E2FE00803339 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		208870E22459E2FE00803339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		208870E52459E2FE00803339 /* Cinebox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cinebox.xcdatamodel; sourceTree = "<group>"; };
 		208870E72459E30000803339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		208870EA2459E30000803339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		208870EC2459E30000803339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		208870F22459E51A00803339 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		20DE90ED245DEE780068AE86 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		20DE90EF245DF2B60068AE86 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,14 @@
 			children = (
 				208870DB2459E2FE00803339 /* AppDelegate.swift */,
 				208870DD2459E2FE00803339 /* SceneDelegate.swift */,
-				208870DF2459E2FE00803339 /* ViewController.swift */,
+				208870F22459E51A00803339 /* SearchViewController.swift */,
 				208870E12459E2FE00803339 /* Main.storyboard */,
 				208870E72459E30000803339 /* Assets.xcassets */,
 				208870E92459E30000803339 /* LaunchScreen.storyboard */,
 				208870EC2459E30000803339 /* Info.plist */,
 				208870E42459E2FE00803339 /* Cinebox.xcdatamodeld */,
+				20DE90EF245DF2B60068AE86 /* MoviesViewController.swift */,
+				20DE90ED245DEE780068AE86 /* SavedViewController.swift */,
 			);
 			path = Cinebox;
 			sourceTree = "<group>";
@@ -141,9 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20DE90EE245DEE780068AE86 /* SavedViewController.swift in Sources */,
 				208870E62459E2FE00803339 /* Cinebox.xcdatamodeld in Sources */,
-				208870E02459E2FE00803339 /* ViewController.swift in Sources */,
 				208870DC2459E2FE00803339 /* AppDelegate.swift in Sources */,
+				208870F32459E51A00803339 /* SearchViewController.swift in Sources */,
+				20DE90F0245DF2B60068AE86 /* MoviesViewController.swift in Sources */,
 				208870DE2459E2FE00803339 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
