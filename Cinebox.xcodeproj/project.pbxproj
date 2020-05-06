@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204A68082461043300616304 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204A68072461043300616304 /* DownloadImage.swift */; };
 		208870DC2459E2FE00803339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208870DB2459E2FE00803339 /* AppDelegate.swift */; };
 		208870DE2459E2FE00803339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208870DD2459E2FE00803339 /* SceneDelegate.swift */; };
 		208870E32459E2FE00803339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208870E12459E2FE00803339 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		204A68072461043300616304 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		208870D82459E2FE00803339 /* Cinebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208870DB2459E2FE00803339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		208870DD2459E2FE00803339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				20DE90EF245DF2B60068AE86 /* MoviesViewController.swift */,
 				20DE90ED245DEE780068AE86 /* SavedViewController.swift */,
 				20D325FF245FD49500E06175 /* SearchResultCell.swift */,
+				204A68072461043300616304 /* DownloadImage.swift */,
 			);
 			path = Cinebox;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20DE90EE245DEE780068AE86 /* SavedViewController.swift in Sources */,
+				204A68082461043300616304 /* DownloadImage.swift in Sources */,
 				208870E62459E2FE00803339 /* Cinebox.xcdatamodeld in Sources */,
 				208870DC2459E2FE00803339 /* AppDelegate.swift in Sources */,
 				208870F32459E51A00803339 /* SearchViewController.swift in Sources */,

@@ -15,6 +15,7 @@ class SearchViewController: UIViewController {
 
     var hasSearched = false
     var searchResults = [[String:Any]]()
+    var downloadTask: URLSessionDownloadTask?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +32,13 @@ class SearchViewController: UIViewController {
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
-          // This will run when the network request returns
+            // This will run when the network request returns
             if let error = error {
-             print(error.localizedDescription)
+                print(error.localizedDescription)
             } else if let data = data {
-             let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-
-            self.searchResults = dataDictionary["results"] as! [[String:Any]]
-            self.tableView.reloadData()
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                self.searchResults = dataDictionary["results"] as! [[String:Any]]
+                self.tableView.reloadData()
             }
         }
         task.resume()
@@ -93,11 +93,22 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
 
             let movie = searchResults[indexPath.row]
-            let title = movie["original_title"] as! String
+            let title = movie["title"] as! String
             let synopsis = movie["overview"] as! String
 
             cell.titleLabel.text = title
             cell.synopsisLabel.text = synopsis
+            
+            let baseUrl = "https://image.tmdb.org/t/p/w185"
+            let posterPath = movie["poster_path"] as? String
+       
+            if (posterPath == nil){
+                cell.posterView.image = UIImage(named: "placeholder")
+            }
+            else {
+                let posterUrl = URL(string: baseUrl + posterPath!)
+                downloadTask = cell.posterView.loadImage(url: posterUrl!)
+            }
             return cell
         }
     }
