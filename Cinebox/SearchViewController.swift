@@ -104,8 +104,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
        
             if (posterPath == nil){
                 cell.posterView.image = UIImage(named: "placeholder")
-            }
-            else {
+            } else {
                 let posterUrl = URL(string: baseUrl + posterPath!)
                 downloadTask = cell.posterView.loadImage(url: posterUrl!)
             }
