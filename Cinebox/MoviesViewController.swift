@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: UIViewController, GenresViewControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -34,7 +34,7 @@ class MoviesViewController: UIViewController {
     }
     
     func filterURL(filterText: String) -> URL {
-        let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=cc1dd3075ce8f7e82e9d87cc00aa19d2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false" + filterText)
+        let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=cc1dd3075ce8f7e82e9d87cc00aa19d2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=" + filterText)
         return url!
     }
     
@@ -54,15 +54,21 @@ class MoviesViewController: UIViewController {
         task.resume()
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let navigationController = segue.destination as! UINavigationController
+        let genresViewController = navigationController.topViewController as! GenresViewController
+        
+        genresViewController.delegate = self
     }
-    */
+    
+    func genresViewController(genresViewController: GenresViewController, selectedGenre genre: String) {
+        let url = filterURL(filterText: genre)
+        performFilterRequest(with: url)
+        collectionView.reloadData()
+    }
 
 }
 
