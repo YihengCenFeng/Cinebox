@@ -55,13 +55,25 @@ class MoviesViewController: UIViewController, GenresViewControllerDelegate {
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let navigationController = segue.destination as! UINavigationController
-        let genresViewController = navigationController.topViewController as! GenresViewController
+        if segue.identifier == "MovieDetails" {
+            // Find the selected movie
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView.indexPath(for: cell)!
+            let movie = movies[indexPath.item]
+            
+            // Pass the selected movie to the datails view controller
+            let detailsViewController = segue.destination as! MovieDetailsViewController
+            detailsViewController.movie = movie
+            
+            collectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            let navigationController = segue.destination as! UINavigationController
+            let genresViewController = navigationController.topViewController as! GenresViewController
+            
+            genresViewController.delegate = self
+        }
         
-        genresViewController.delegate = self
     }
     
     func genresViewController(genresViewController: GenresViewController, selectedGenre genre: String) {

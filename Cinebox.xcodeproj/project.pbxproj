@@ -21,6 +21,7 @@
 		20DE90EE245DEE780068AE86 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DE90ED245DEE780068AE86 /* SavedViewController.swift */; };
 		20DE90F0245DF2B60068AE86 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DE90EF245DF2B60068AE86 /* MoviesViewController.swift */; };
 		20DFB0B6246280F5002F1862 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0B5246280F5002F1862 /* MovieCell.swift */; };
+		20F120A024674BF70022FE52 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F1209F24674BF70022FE52 /* MovieDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		20DE90ED245DEE780068AE86 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		20DE90EF245DF2B60068AE86 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		20DFB0B5246280F5002F1862 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		20F1209F24674BF70022FE52 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				204A68072461043300616304 /* DownloadImage.swift */,
 				202D34FF2464EE3A00A85B91 /* GenresViewController.swift */,
 				202D34FD2464ED8300A85B91 /* GenreCell.swift */,
+				20F1209F24674BF70022FE52 /* MovieDetailsViewController.swift */,
 			);
 			path = Cinebox;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				208870DC2459E2FE00803339 /* AppDelegate.swift in Sources */,
 				208870F32459E51A00803339 /* SearchViewController.swift in Sources */,
 				202D35002464EE3A00A85B91 /* GenresViewController.swift in Sources */,
+				20F120A024674BF70022FE52 /* MovieDetailsViewController.swift in Sources */,
 				20DE90F0245DF2B60068AE86 /* MoviesViewController.swift in Sources */,
 				20D32600245FD49500E06175 /* SearchResultCell.swift in Sources */,
 				208870DE2459E2FE00803339 /* SceneDelegate.swift in Sources */,

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="bDi-7v-Pff">
             <objects>
                 <viewController id="8tE-UL-o6w" customClass="SearchViewController" customModule="Cinebox" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BDX-W9-6m1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="8XD-rZ-0mm">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
@@ -74,6 +74,7 @@
                                             <outlet property="posterView" destination="Znj-Hh-qSb" id="nGo-sQ-A5f"/>
                                             <outlet property="synopsisLabel" destination="Mib-dt-BA2" id="4PK-eq-3XQ"/>
                                             <outlet property="titleLabel" destination="dXl-Gs-B8e" id="Kgm-yq-cDf"/>
+                                            <segue destination="r70-gm-zRp" kind="show" id="owt-1v-Xmy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -92,7 +93,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fFy-ZZ-Vrc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="X4Y-ZJ-nS3"/>
+                    <navigationItem key="navigationItem" id="gIV-Bz-WIR"/>
                     <connections>
                         <outlet property="searchBar" destination="8XD-rZ-0mm" id="y5Q-hf-2iV"/>
                         <outlet property="tableView" destination="BDX-W9-6m1" id="SDj-Wh-HaH"/>
@@ -100,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWe-X2-x7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.80000000000001" y="787.55622188905556"/>
+            <point key="canvasLocation" x="129" y="1575"/>
         </scene>
         <!--Movies-->
         <scene sceneID="MMn-0C-WpG">
@@ -112,7 +113,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nZ3-5M-MP1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.84416205570000002" green="0.914507772" blue="0.90794229380000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M0y-pt-Bco">
                                     <size key="itemSize" width="120" height="194"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -154,6 +155,7 @@
                                         <connections>
                                             <outlet property="posterView" destination="hvp-Ah-JO3" id="bzX-D7-0OJ"/>
                                             <outlet property="titleLabel" destination="lpe-Ur-A1J" id="M3V-Md-PPp"/>
+                                            <segue destination="r70-gm-zRp" kind="show" identifier="MovieDetails" id="Siz-X7-D0q"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -162,8 +164,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="nZ3-5M-MP1" firstAttribute="trailing" secondItem="H2C-EI-4qB" secondAttribute="trailing" id="MY6-H7-9Yf"/>
+                            <constraint firstAttribute="bottom" secondItem="nZ3-5M-MP1" secondAttribute="bottom" id="OQg-Te-Bjo"/>
                             <constraint firstItem="nZ3-5M-MP1" firstAttribute="top" secondItem="NGa-jF-XlL" secondAttribute="top" id="UsE-as-6zY"/>
-                            <constraint firstAttribute="bottom" secondItem="nZ3-5M-MP1" secondAttribute="bottom" id="jUM-PE-2Mp"/>
                             <constraint firstItem="nZ3-5M-MP1" firstAttribute="leading" secondItem="H2C-EI-4qB" secondAttribute="leading" id="xY8-Lq-chq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H2C-EI-4qB"/>
@@ -181,7 +183,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7D-b8-rF3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-746" y="1575"/>
+            <point key="canvasLocation" x="-746.39999999999998" y="1574.6626686656673"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="Rs1-Bj-EMq">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="r70-gm-zRp" customClass="MovieDetailsViewController" customModule="Cinebox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kw1-Gq-sLA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSD-9b-Med">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="djP-U4-bGW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gji-Ik-s6A">
+                                <rect key="frame" x="122.5" y="169" width="130" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="CYI-SO-YSa"/>
+                                    <constraint firstAttribute="height" constant="185" id="IzY-PS-4Ds"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-zp-jpC">
+                                <rect key="frame" x="166.5" y="366" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZi-hg-opg">
+                                <rect key="frame" x="16" y="406.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gji-Ik-s6A" firstAttribute="centerX" secondItem="kw1-Gq-sLA" secondAttribute="centerX" id="6Vo-qX-43h"/>
+                            <constraint firstItem="mZi-hg-opg" firstAttribute="top" secondItem="zeh-zp-jpC" secondAttribute="bottom" constant="20" id="6Xu-3p-FbC"/>
+                            <constraint firstItem="dSD-9b-Med" firstAttribute="top" secondItem="kw1-Gq-sLA" secondAttribute="topMargin" constant="-44" id="GHy-pq-Gzv"/>
+                            <constraint firstItem="dSD-9b-Med" firstAttribute="leading" secondItem="rv2-Ft-7uQ" secondAttribute="leading" id="afU-Ya-1hr"/>
+                            <constraint firstItem="gji-Ik-s6A" firstAttribute="top" secondItem="kw1-Gq-sLA" secondAttribute="topMargin" constant="125" id="ek1-RJ-gbW"/>
+                            <constraint firstItem="rv2-Ft-7uQ" firstAttribute="trailing" secondItem="mZi-hg-opg" secondAttribute="trailing" constant="16" id="g3A-VJ-p02"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dSD-9b-Med" secondAttribute="bottom" constant="330" id="gdN-DN-mam"/>
+                            <constraint firstItem="dSD-9b-Med" firstAttribute="trailing" secondItem="rv2-Ft-7uQ" secondAttribute="trailing" id="u5t-F6-OY8"/>
+                            <constraint firstItem="zeh-zp-jpC" firstAttribute="centerX" secondItem="kw1-Gq-sLA" secondAttribute="centerX" id="vMD-OL-1Vs"/>
+                            <constraint firstItem="mZi-hg-opg" firstAttribute="leading" secondItem="rv2-Ft-7uQ" secondAttribute="leading" constant="16" id="yp2-v5-T9e"/>
+                            <constraint firstItem="zeh-zp-jpC" firstAttribute="top" secondItem="gji-Ik-s6A" secondAttribute="bottom" constant="12" id="zfo-AR-rdA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rv2-Ft-7uQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FSg-nk-Dgi"/>
+                    <connections>
+                        <outlet property="backdropView" destination="dSD-9b-Med" id="sbF-m8-rZ3"/>
+                        <outlet property="posterView" destination="gji-Ik-s6A" id="jlV-pU-le0"/>
+                        <outlet property="synopsisLabel" destination="mZi-hg-opg" id="adS-B7-U2i"/>
+                        <outlet property="titleLabel" destination="zeh-zp-jpC" id="9CW-gF-mua"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OyH-Kv-46C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="2301.4992503748126"/>
         </scene>
         <!--Genres-->
         <scene sceneID="6Ji-xx-Cgm">
@@ -213,7 +277,8 @@
                                                 <constraint firstItem="UY9-my-Z9q" firstAttribute="centerY" secondItem="nS9-3a-xay" secondAttribute="centerY" id="0KP-n4-6Qe"/>
                                                 <constraint firstItem="UY9-my-Z9q" firstAttribute="top" secondItem="nS9-3a-xay" secondAttribute="top" constant="4" id="6bY-4I-Leh"/>
                                                 <constraint firstAttribute="bottom" secondItem="UY9-my-Z9q" secondAttribute="bottom" constant="4" id="aPP-tZ-P4b"/>
-                                                <constraint firstItem="UY9-my-Z9q" firstAttribute="leading" secondItem="nS9-3a-xay" secondAttribute="leading" constant="16" id="jJl-WI-zFX"/>
+                                                <constraint firstItem="UY9-my-Z9q" firstAttribute="leading" secondItem="nS9-3a-xay" secondAttribute="leading" constant="16" id="cqG-Fk-SGa"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UY9-my-Z9q" secondAttribute="trailing" constant="16" id="lWH-X7-0kf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -258,7 +323,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Lja-tI-iIW" kind="relationship" relationship="viewControllers" id="7JD-IE-cRq"/>
-                        <segue destination="8tE-UL-o6w" kind="relationship" relationship="viewControllers" id="gzI-qL-hNo"/>
+                        <segue destination="Tb6-gO-bHD" kind="relationship" relationship="viewControllers" id="gzI-qL-hNo"/>
                         <segue destination="NAY-99-zxM" kind="relationship" relationship="viewControllers" id="IZN-lC-TXA"/>
                     </connections>
                 </tabBarController>
@@ -315,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVv-c4-dEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="788"/>
+            <point key="canvasLocation" x="1976.8" y="787.55622188905556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kpF-ll-mfb">
@@ -335,10 +400,32 @@
             </objects>
             <point key="canvasLocation" x="-1502" y="1575"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="CFt-t0-ONX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tb6-gO-bHD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="X4Y-ZJ-nS3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sZi-ZE-nDg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8tE-UL-o6w" kind="relationship" relationship="rootViewController" id="sl7-Om-ayD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phc-cd-no7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="787.55622188905556"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="56" height="64"/>
         <image name="film" catalog="system" width="64" height="46"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Siz-X7-D0q"/>
+    </inferredMetricsTieBreakers>
 </document>
