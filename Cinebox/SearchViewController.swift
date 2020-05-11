@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
+
     var hasSearched = false
     var searchResults = [[String:Any]]()
     var downloadTask: URLSessionDownloadTask?
@@ -20,8 +21,13 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         tableView.contentInset = UIEdgeInsets(top: 84, left: 0, bottom: 0, right: 0)
     }
+    
+   
     
     func searchURL(searchText: String) -> URL {
         let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=cc1dd3075ce8f7e82e9d87cc00aa19d2&language=en-US&query=" + searchText + "&page=1&include_adult=false")
@@ -67,15 +73,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    // Only can select rows when there are search results
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if searchResults.count == 0 {
-            return nil
-        } else {
-            return indexPath
-        }
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !hasSearched {
             return 0
@@ -98,8 +95,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
 
             let movie = searchResults[indexPath.row]
-            let title = movie["title"] as! String
-            let synopsis = movie["overview"] as! String
+            let title = movie["title"] as? String
+            let synopsis = movie["overview"] as? String
 
             cell.titleLabel.text = title
             cell.synopsisLabel.text = synopsis
@@ -125,7 +122,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if !searchBar.text!.isEmpty {
+        if !(searchBar.text!.isEmpty) {
             // Dismiss keyboard on search
             searchBar.resignFirstResponder()
             
@@ -136,4 +133,5 @@ extension SearchViewController: UISearchBarDelegate {
         }
     }
 }
+
 

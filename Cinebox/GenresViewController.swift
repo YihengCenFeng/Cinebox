@@ -55,16 +55,13 @@ class GenresViewController: UIViewController {
 extension GenresViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if( tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark){
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-            
-            let genre = genres[indexPath.row]["id"]!
            
-            delegate?.genresViewController?(genresViewController: self, selectedGenre: genre)
-            dismiss(animated: true, completion: nil)
-        }
+        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+        
+        let genre = genres[indexPath.row]["id"]!
+       
+        delegate?.genresViewController?(genresViewController: self, selectedGenre: genre)
+        dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

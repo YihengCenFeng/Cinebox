@@ -94,7 +94,7 @@ extension MoviesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
         let movie = movies[indexPath.item]
-        let title = movie["title"] as! String
+        let title = movie["title"] as? String
         
         cell.titleLabel.text = title
 
